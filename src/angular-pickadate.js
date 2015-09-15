@@ -250,7 +250,8 @@
           minDate: '=',
           maxDate: '=',
           disabledDates: '=',
-          weekStartsOn: '='
+          weekStartsOn: '=',
+          currentDate: '='
         },
 
         link: function(scope, element, attrs, ngModel)  {
@@ -311,8 +312,11 @@
             // sets the date to March the 3rd, since the date object adds 30 days to the current
             // date. Settings the date to the 2nd day of the month is a workaround to prevent this
             // behaviour
-            scope.currentDate.setDate(1);
-            scope.currentDate.setMonth(scope.currentDate.getMonth() + offset);
+            
+            var newDate = angular.copy(scope.currentDate);
+            newDate.setDate(1);
+            newDate.setMonth(scope.currentDate.getMonth() + offset);
+            scope.currentDate = newDate;
             render();
           };
 
