@@ -251,7 +251,8 @@
           maxDate: '=',
           disabledDates: '=',
           weekStartsOn: '=',
-          currentDate: '='
+          currentDate: '=',
+          onChangeMonth: '='
         },
 
         link: function(scope, element, attrs, ngModel)  {
@@ -317,6 +318,9 @@
             newDate.setDate(1);
             newDate.setMonth(scope.currentDate.getMonth() + offset);
             scope.currentDate = newDate;
+            if (scope.onChangeMonth) {
+              scope.onChangeMonth(scope.currentDate);
+            }
             render();
           };
 
