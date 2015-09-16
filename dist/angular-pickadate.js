@@ -252,7 +252,8 @@
           disabledDates: '=',
           weekStartsOn: '=',
           currentDate: '=',
-          onChangeMonth: '='
+          onChangeMonth: '=',
+          onChangeDate: '='
         },
 
         link: function(scope, element, attrs, ngModel)  {
@@ -377,7 +378,9 @@
             } else {
               ngModel.$setViewValue(value[0] && value[0].formattedDate);
             }
-
+            if (scope.onChangeDate) {
+              scope.onChangeDate(value[0]);
+            }
             if (!options.skipRenderInput) element.val(ngModel.$viewValue);
           }
 
