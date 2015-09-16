@@ -269,6 +269,7 @@
               });
 
           scope.displayPicker = !wantsModal;
+          scope.currentDate = dateHelper.parseDate(scope.defaultDate || selectedDates[0]) || new Date();
 
           scope.setDate = function(dateObj) {
             if (!dateObj.enabled) return;
@@ -286,8 +287,6 @@
             } else if (ngModel.$viewValue) {
               selectedDates = [ngModel.$viewValue];
             }
-
-            scope.currentDate = dateHelper.parseDate(scope.defaultDate || selectedDates[0]) || new Date();
 
             dateHelper.setRestrictions(scope);
 

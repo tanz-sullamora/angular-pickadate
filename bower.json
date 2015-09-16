@@ -1,6 +1,6 @@
 {
   "name": "tanz-angular-pickadate",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "homepage": "https://github.com/tanz-sullamora/angular-pickadate",
   "description": "A simple and fluid inline datepicker for AngularJS with no extra dependencies",
   "keywords": [
